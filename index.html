@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletrofuturo | Soluções Elétricas para um Amanhã Melhor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS DE DESIGN & REPOUSO BASE
+           ========================================================================== */
+        :root {
+            --bg-dark: #070c14;
+            --bg-card: #0d1522;
+            --bg-navy: #111c2e;
+            --yellow: #ffc800;
+            --yellow-hover: #e6b400;
+            --yellow-glow: rgba(255, 200, 0, 0.25);
+            --text-white: #ffffff;
+            --text-light: #d1d5db;
+            --text-muted: #9ca3af;
+            --accent-blue: #1e293b;
+            --transition-fast: 0.25s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --shadow-yellow: 0 8px 25px rgba(255, 200, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-white);
+            font-weight: 800;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container Padrão */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Botões customizados estilo Eletrofuturo */
+        .btn-yellow {
+            background-color: var(--yellow);
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            padding: 0.85rem 1.8rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            border: 2px solid var(--yellow);
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.88rem;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-yellow);
+            transition: var(--transition-fast);
+        }
+
+        .btn-yellow:hover {
+            background-color: var(--yellow-hover);
+            border-color: var(--yellow-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 200, 0, 0.45);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--yellow);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            padding: 0.85rem 1.8rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.88rem;
+            transition: var(--transition-fast);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--yellow);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Títulos e Secções */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background-color: var(--yellow);
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            padding: 0.4rem 1.2rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        /* ==========================================================================
+           2. HEADER & NAVEGAÇÃO
+           ========================================================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(7, 12, 20, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 200, 0, 0.15);
+            transition: var(--transition-fast);
+        }
+
+        .header.scrolled {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            padding: 0.2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--yellow);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.5rem;
+            box-shadow: 0 0 15px var(--yellow-glow);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .logo-title span {
+            color: var(--yellow);
+        }
+
+        .logo-subtitle {
+            font-size: 0.58rem;
+            letter-spacing: 1.2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-white);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: var(--yellow);
+            transition: var(--transition-fast);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.8rem;
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION (BANNER PRINCIPAL)
+           ========================================================================== */
+        .hero {
+            position: relative;
+            padding-top: 130px;
+            padding-bottom: 6rem;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #070c14 0%, #0d1728 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 50vw;
+            height: 140%;
+            background: rgba(255, 200, 0, 0.03);
+            transform: rotate(-12deg);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-slogan-badge {
+            font-family: 'Caveat', cursive;
+            color: var(--yellow);
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            transform: rotate(-2deg);
+            text-shadow: 0 0 10px rgba(255, 200, 0, 0.2);
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            color: var(--yellow);
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            max-width: 550px;
+        }
+
+        .hero-highlight-box {
+            background: linear-gradient(90deg, rgba(255,200,0,0.15) 0%, rgba(255,200,0,0.02) 100%);
+            border-left: 4px solid var(--yellow);
+            padding: 1rem 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-highlight-text {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 1.1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Banner visual do eletricista no Hero */
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            border: 3px solid rgba(255, 200, 0, 0.3);
+            background: var(--bg-card);
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            filter: brightness(0.95) contrast(1.05);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-image-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .hero-badge-floating {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--bg-navy);
+            border: 2px solid var(--yellow);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-card);
+            z-index: 10;
+        }
+
+        .hero-badge-icon {
+            font-size: 2rem;
+            color: var(--yellow);
+        }
+
+        .hero-badge-text {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           4. SEÇÃO SOBRE NÓS
+           ========================================================================== */
+        .about-section {
+            background-color: var(--bg-navy);
+            position: relative;
+            clip-path: polygon(0 0, 100% 3vw, 100% 100%, 0 calc(100% - 3vw));
+            padding: 7rem 0;
+            margin-top: -2vw;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.25;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.03);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--yellow);
+        }
+
+        .about-feature-item i {
+            color: var(--yellow);
+            font-size: 1.2rem;
+        }
+
+        .about-feature-item span {
+            font-weight: 600;
+            color: var(--text-white);
+            font-size: 0.95rem;
+        }
+
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 200, 0, 0.2);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+
+        .stat-card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--yellow);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           5. SEÇÃO SERVIÇOS (CARDS COM ÍCONES AMARELOS)
+           ========================================================================== */
+        .services-section {
+            padding: 7rem 0;
+            background-color: var(--bg-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            transition: var(--transition-fast);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 200, 0, 0.4);
+            box-shadow: var(--shadow-card);
+        }
+
+        .service-card:hover::before {
+            background: var(--yellow);
+        }
+
+        .service-icon-wrapper {
+            width: 65px;
+            height: 65px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            color: var(--text-white);
+        }
+
+        .service-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .service-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* ==========================================================================
+           6. POR QUE ESCOLHER-NOS (DESTAQUES COM MOLDURA DOURADA)
+           ========================================================================== */
+        .why-us-section {
+            background-color: var(--bg-navy);
+            position: relative;
+            clip-path: polygon(0 3vw, 100% 0, 100% calc(100% - 3vw), 0 100%);
+            padding: 7.5rem 0;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: rgba(7, 12, 20, 0.7);
+            border: 1px solid rgba(255, 200, 0, 0.2);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+
+        .why-card:hover {
+            background: var(--bg-dark);
+            border-color: var(--yellow);
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(255,200,0,0.15);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            margin-bottom: 1rem;
+        }
+
+        .why-title {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-white);
+        }
+
+        /* ==========================================================================
+           7. PROJETOS / GALERIA DE ELEMENTOS VISUAIS
+           ========================================================================== */
+        .projects-section {
+            padding: 7rem 0 5rem 0;
+            background-color: var(--bg-dark);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(7,12,20,0.95) 0%, rgba(7,12,20,0.2) 70%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            transition: var(--transition-fast);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        /* ==========================================================================
+           8. CONTACTO & FORMULÁRIO DE ORÇAMENTO
+           ========================================================================== */
+        .contact-section {
+            padding: 5rem 0;
+            background-color: var(--bg-dark);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .contact-info-box {
+            background: var(--bg-navy);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 200, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta-badge {
+            background-color: var(--yellow);
+            color: #000;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-yellow);
+        }
+
+        .contact-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--yellow);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item-content p, 
+        .contact-item-content a {
+            font-size: 1.15rem;
+            color: var(--text-white);
+            font-weight: 700;
+        }
+
+        .contact-slogan-footer {
+            font-family: 'Caveat', cursive;
+            color: var(--yellow);
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+            line-height: 1.2;
+        }
+
+        /* Formulario de Orçamento */
+        .quote-form-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-card);
+        }
+
+        .quote-form-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-form-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+            color: var(--text-white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--yellow);
+            box-shadow: 0 0 10px rgba(255, 200, 0, 0.2);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        /* ==========================================================================
+           9. FOOTER
+           ========================================================================== */
+        .footer {
+            background-color: #04070c;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4rem 0 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-white);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+
+        .footer-links display, 
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================================================
+           10. BOTÕES FLUTUANTES, TOAST & ANIMAÇÕES JS
+           ========================================================================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition-fast);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--bg-navy);
+            color: var(--yellow);
+            border: 2px solid var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-fast);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--yellow);
+            color: #000;
+        }
+
+        /* Toast Message Notification */
+        .toast-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--bg-navy);
+            border-left: 4px solid var(--yellow);
+            color: var(--text-white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(150%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+
+        .toast-notification i {
+            color: var(--yellow);
+            font-size: 1.5rem;
+        }
+
+        /* Animações de Entrada Observer */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           11. RESPONSIVIDADE (MEDIA QUERIES)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-grid, 
+            .about-grid, 
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: 0 auto 1.5rem auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-badge-floating {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+                width: 90%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-section, .why-us-section {
+                clip-path: none;
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--bg-dark);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition-smooth);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER / NAVEGAÇÃO
+         ========================================================================== -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo-box">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ELETRO<span>FUTURO</span></span>
+                    <span class="logo-subtitle">SOLUÇÕES ELÉTRICAS</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="#por-que-nos" class="nav-link">Por que Nós</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#contactos" class="nav-link">Contactos</a></li>
+                    <li><a href="#orcamento" class="btn-yellow" style="padding: 0.6rem 1.2rem;">Pedir Orçamento</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-slogan-badge">Energia que move o seu mundo!</span>
+                    <h1 class="hero-title">Instalações, Manutenção e <span>Projetos Elétricos</span></h1>
+                    <p class="hero-description">
+                        A <strong>Eletrofuturo</strong> é uma empresa especializada em serviços elétricos, oferecendo soluções seguras, eficientes e de qualidade para residências, empresas e indústrias.
+                    </p>
+                    <div class="hero-highlight-box">
+                        <p class="hero-highlight-text">Do seu lar à sua empresa, nós ligamos o seu futuro!</p>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#orcamento" class="btn-yellow">
+                            <i class="fa-solid fa-paper-plane"></i> Solicitar Orçamento
+                        </a>
+                        <a href="https://wa.me/258852722098?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Eletrofuturo" target="_blank" class="btn-outline">
+                            <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper reveal">
+                    <div class="hero-image-card">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1000&auto=format&fit=crop" alt="Eletricista qualificado Eletrofuturo trabalhando em painel de disjuntores" onerror="this.src='https://placehold.co/600x500/101827/ffcc00?text=Eletrofuturo+Moçambique'">
+                    </div>
+                    <div class="hero-badge-floating">
+                        <i class="fa-solid fa-shield-halved hero-badge-icon"></i>
+                        <div class="hero-badge-text">
+                            <div>Segurança &</div>
+                            <div>Normas TÉCNICAS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SOBRE A ELETROFUTURO
+         ========================================================================== -->
+    <section class="about-section" id="sobre">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <span class="section-tag">Sobre Nós</span>
+                    <h2>Excelência e Inovação em Serviços Elétricos</h2>
+                    <p>
+                        Fundada com o compromisso de garantir energia limpa, segura e contínua, a <strong>Eletrofuturo</strong> combina técnicos altamente experientes e tecnologia de ponta para atender demandas elétricas de qualquer complexidade em Moçambique.
+                    </p>
+                    <p>
+                        Garantimos o cumprimento rigoroso dos padrões internacionais de segurança elétrica, protegendo patrimónios e otimizando o consumo energético.
+                    </p>
+
+                    <div class="about-features-list">
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Equipa Qualificada</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Atendimento Rápido</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Normas de Segurança</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span>Garantia de Serviço</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats-grid reveal">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Segurança Garantida</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Suporte e Manutenção</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">+500</div>
+                        <div class="stat-label">Projetos Concluídos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Maputo</div>
+                        <div class="stat-label">Moçambique</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         NOSSOS SERVIÇOS
+         ========================================================================== -->
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nossos Serviços</span>
+                <h2 class="section-title">Soluções Completas para Si</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Serviço 1 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <h3 class="service-title">Instalações Elétricas Residenciais</h3>
+                    <p class="service-desc">Mais conforto e segurança para sua casa. Montagem de iluminação, quadros elétricos e automação residencial.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Instalações Elétricas Comerciais</h3>
+                    <p class="service-desc">Soluções que mantêm o seu negócio sempre funcionando. Redes estáveis para lojas, escritórios e edifícios.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="service-title">Instalações Elétricas Industriais</h3>
+                    <p class="service-desc">Projetos e instalações para grandes resultados. Entrada de energia, quadros de comando e alta demanda.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h3 class="service-title">Manutenção Elétrica</h3>
+                    <p class="service-desc">Prevenção e correção de falhas com agilidade. Diagnóstico térmico e substituição de componentes danificados.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Serviço 5 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <h3 class="service-title">Projetos Elétricos</h3>
+                    <p class="service-desc">Planejamento e execução com profissionais qualificados. Dimensionamento correto para economia e eficiência.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Serviço 6 -->
+                <div class="service-card reveal">
+                    <div class="service-icon-wrapper">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="service-title">Adequação e Segurança</h3>
+                    <p class="service-desc">Instalações dentro das normas e com total segurança. Aterramento elétrico, pára-raios e proteção contra sobretensões.</p>
+                    <a href="#orcamento" class="service-link">Solicitar <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         POR QUE ESCOLHER-NOS
+         ========================================================================== -->
+    <section class="why-us-section" id="por-que-nos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Diferenciais</span>
+                <h2 class="section-title">Por que escolher a Eletrofuturo?</h2>
+            </div>
+
+            <div class="why-us-grid">
+                <div class="why-card reveal">
+                    <i class="fa-solid fa-award why-icon"></i>
+                    <h3 class="why-title">QUALIDADE NO SERVIÇO</h3>
+                </div>
+                <div class="why-card reveal">
+                    <i class="fa-solid fa-clock why-icon"></i>
+                    <h3 class="why-title">AGILIDADE NO ATENDIMENTO</h3>
+                </div>
+                <div class="why-card reveal">
+                    <i class="fa-solid fa-handshake why-icon"></i>
+                    <h3 class="why-title">CONFIANÇA E COMPROMISSO</h3>
+                </div>
+                <div class="why-card reveal">
+                    <i class="fa-solid fa-bolt why-icon"></i>
+                    <h3 class="why-title">ENERGIA COM SEGURANÇA</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROJETOS / GALERIA VISUAL
+         ========================================================================== -->
+    <section class="projects-section" id="projetos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Galeria</span>
+                <h2 class="section-title">Nosso Universo Elétrico</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=600&auto=format&fit=crop" alt="Lâmpada de filamento aquecida iluminação" onerror="this.src='https://placehold.co/400x300/101827/ffcc00?text=Iluminação'">
+                    <div class="project-overlay">
+                        <span class="project-tag">Design & Eficiência</span>
+                        <h4 class="project-title">Iluminação Residencial & Decorativa</h4>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=600&auto=format&fit=crop" alt="Fiação e cabos de cobre de alta qualidade" onerror="this.src='https://placehold.co/400x300/101827/ffcc00?text=Fiação+e+Cabos'">
+                    <div class="project-overlay">
+                        <span class="project-tag">Infraestrutura</span>
+                        <h4 class="project-title">Cabos e Condutores Certificados</h4>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop" alt="Quadro elétrico e tomadas industriais" onerror="this.src='https://placehold.co/400x300/101827/ffcc00?text=Quadros+Elétricos'">
+                    <div class="project-overlay">
+                        <span class="project-tag">Comercial</span>
+                        <h4 class="project-title">Quadros de Distribuição & Tomadas</h4>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=600&auto=format&fit=crop" alt="Torres de energia e alta tensão ao pôr do sol" onerror="this.src='https://placehold.co/400x300/101827/ffcc00?text=Torres+de+Energia'">
+                    <div class="project-overlay">
+                        <span class="project-tag">Alta Tensão</span>
+                        <h4 class="project-title">Redes Elétricas e Subestações</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACTOS & SOLICITAÇÃO DE ORÇAMENTO
+         ========================================================================== -->
+    <section class="contact-section" id="contactos">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <!-- Dados de Contacto estilo Banner -->
+                <div class="contact-info-box reveal">
+                    <div class="contact-cta-badge">
+                        <i class="fa-solid fa-phone"></i> ENTRE EM CONTATO - SOLICITE SEU ORÇAMENTO!
+                    </div>
+
+                    <div class="contact-details-list">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Telefone / WhatsApp</h4>
+                                <p><a href="https://wa.me/258852722098" target="_blank">+258 852 722 098</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>E-mail</h4>
+                                <p><a href="mailto:eletrofuturo@gmail.com">eletrofuturo@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-item-content">
+                                <h4>Localização</h4>
+                                <p>Maputo - Moçambique</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-slogan-footer">
+                        Eletrofuturo<br>
+                        <em>Juntos por um futuro mais iluminado!</em>
+                    </div>
+                </div>
+
+                <!-- Formulario de Pedido de Orçamento -->
+                <div class="quote-form-card reveal" id="orcamento">
+                    <h3>Solicitar Orçamento Grátis</h3>
+                    <p>Preencha os dados abaixo e entraremos em contacto rapidamente com uma proposta personalizada.</p>
+
+                    <form id="quote-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nome Completo</label>
+                            <input type="text" id="name" class="form-control" placeholder="Ex: João da Silva" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Contacto Telefónico / WhatsApp</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Ex: +258 84 000 0000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="service">Tipo de Serviço</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Selecione o serviço pretendido</option>
+                                <option value="Residencial">Instalações Elétricas Residenciais</option>
+                                <option value="Comercial">Instalações Elétricas Comerciais</option>
+                                <option value="Industrial">Instalações Elétricas Industriais</option>
+                                <option value="Manutenção">Manutenção Elétrica</option>
+                                <option value="Projetos">Projetos Elétricos</option>
+                                <option value="Adequação">Adequação e Segurança</option>
+                                <option value="Outro">Outro Serviço</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Detalhes do Pedido</label>
+                            <textarea id="message" class="form-control" placeholder="Descreva brevemente o que necessita..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-yellow" style="width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Pedido de Orçamento
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo-box">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">ELETRO<span>FUTURO</span></span>
+                        </div>
+                    </div>
+                    <p>Soluções elétricas completas, seguras e eficientes para residências, empresas e indústrias em Maputo e todo o território de Moçambique.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre a Eletrofuturo</a></li>
+                        <li><a href="#servicos">Nossos Serviços</a></li>
+                        <li><a href="#por-que-nos">Por que Escolher-nos</a></li>
+                        <li><a href="#projetos">Galeria de Projetos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicos">Elétrica Residencial</a></li>
+                        <li><a href="#servicos">Elétrica Comercial</a></li>
+                        <li><a href="#servicos">Redes Industriais</a></li>
+                        <li><a href="#servicos">Manutenção Preventiva</a></li>
+                        <li><a href="#servicos">Projetos & Pára-Raios</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contactos</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-phone" style="color:var(--yellow)"></i> +258 852 722 098</li>
+                        <li><i class="fa-regular fa-envelope" style="color:var(--yellow)"></i> eletrofuturo@gmail.com</li>
+                        <li><i class="fa-solid fa-location-dot" style="color:var(--yellow)"></i> Maputo - Moçambique</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Eletrofuturo. Todos os direitos reservados. Soluções Elétricas para um Amanhã Melhor.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/258852722098?text=Olá!%20Vim%20pelo%20site%20da%20Eletrofuturo%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="whatsapp-float" aria-label="Contacto WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao Topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- NOTIFICAÇÃO TOAST -->
+    <div class="toast-notification" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <strong style="display:block;">Sucesso!</strong>
+            <span id="toast-message">Seu pedido foi enviado com sucesso.</span>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         JAVASCRIPT
+         ========================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* 1. Menu Mobile Toggle */
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if(navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Fechar menu ao clicar em um link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            /* 2. Alterar estado do Header ao rolar */
+            const header = document.getElementById('header');
+            const backToTopBtn = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            /* 3. Botão Voltar ao Topo */
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            /* 4. Intersection Observer para Animações ao Rolar (Fade-in / Slide-up) */
+            const observerOptions = {
+                threshold: 0.15
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                revealObserver.observe(element);
+            });
+
+            /* 5. Highlight ativo no Menu de Navegação conforme o scroll */
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            /* 6. Form Envio de Orçamento + Toast Notification */
+            const quoteForm = document.getElementById('quote-form');
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+
+            function showToast(message) {
+                toastMessage.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+            }
+
+            quoteForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+
+                // Construir mensagem para redirecionar via WhatsApp
+                const text = `*Novo Pedido de Orçamento via Site*%0A%0A` +
+                             `*Nome:* ${encodeURIComponent(name)}%0A` +
+                             `*Contacto:* ${encodeURIComponent(phone)}%0A` +
+                             `*Serviço:* ${encodeURIComponent(service)}%0A` +
+                             `*Mensagem:* ${encodeURIComponent(message)}`;
+
+                showToast("Redirecionando para o WhatsApp da Eletrofuturo...");
+
+                setTimeout(() => {
+                    window.open(`https://wa.me/258852722098?text=${text}`, '_blank');
+                    quoteForm.reset();
+                }, 1200);
+            });
+
+            /* 7. Atualizar ano no rodapé automaticamente */
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
